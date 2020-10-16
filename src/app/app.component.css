@@ -1,0 +1,83 @@
+.repoName {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    width: 150px;
+    text-transform: capitalize;
+    white-space: normal;
+}
+.mat-expansion-panel-header-description {
+    width: 100%;
+}
+.repoId {
+    width: 100px;
+}
+.repoName {
+    width: 200px;
+    text-transform: capitalize;
+}
+.mat-accordion .mat-expansion-panel:last-of-type {
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+}
+.repoUrl{
+  width: 500px;
+}
+.loadWrapper {  
+    background: rgba(0,0,0,0.3);  
+    width: 100%;  
+    height: 100%;  
+    position: fixed;  
+    top:0px;  
+    left:0px;  
+    z-index: 999999999;  
+  }  
+  .loader {
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #3d3e3f; /* gray */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .mat-expansion-panel-header-description, .mat-expansion-indicator::after {
+    color: #000;
+}
+.masterTableHeading{
+  margin-top: 15px;
+  font-size: 25px;
+  font-weight: 600;
+}
+.addFav {
+  position: absolute;
+  position: absolute;
+  right: -106px;
+  top: 5px;
+}
+.repoList  {
+  position: relative;
+  width:85%;
+}
+.container {
+  position: relative;
+}
+.favListButton{
+  position: absolute;
+  right: -70px;
+  top: 11px;
+  width: 10%;
+  background-color: #3f81d2;
+  color: #fff;
+  font-size: 18px;
+}
+.modal-title{
+  text-align: center;
+  font-size: 20px;
+}

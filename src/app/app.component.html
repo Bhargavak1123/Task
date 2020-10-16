@@ -1,0 +1,78 @@
+
+
+<div class="container">
+  <h1 class="masterTableHeading text-center">Public Repositeries</h1>
+  <button class="btn favListButton" data-toggle="modal" data-target="#myModal">FavList</button>
+  <div *ngIf="repoError?.message">
+    <div class="alert alert-danger" role="alert" id="repoError">
+      Some error occurred. Please try again
+    </div>
+  </div>
+  
+  <!-- <div class="col-md-3">
+    <div *ngFor="let repo of respoList">
+      <button (click)="getContributors(repo.contributors_url);" class="btn repoName">{{repo.name}}</button>
+      <button (click)="addToFav(repo);" class="btn favBtn">Add to Fav</button>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <h2>Contributors List</h2>
+    <div *ngFor="let contributor of contributorList">
+      <button class="btn">{{contributor.login}}</button>
+    </div>
+  </div> -->
+<div *ngFor="let repo of respoList" class="repoList">
+  <mat-accordion (click)="getContributors(repo.contributors_url);">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          
+        </mat-panel-title>
+        <mat-panel-description >
+          <span class="repoId"><b>Id:</b>&nbsp;&nbsp;{{repo.id}}</span>
+          <span class="repoName"><b>Name:</b>&nbsp;&nbsp;<span>{{repo.name}}</span></span>
+          <span class="repoUrl"><b>URL:</b>&nbsp;&nbsp;{{repo.url}}</span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <ag-grid-angular 
+    style="height: 200px;width: 200px;" 
+    class="ag-theme-alpine"
+    [rowData]="rowData" 
+    [columnDefs]="columnDefs">
+</ag-grid-angular>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <button class="btn addFav" (click)="addToFav(repo);">Add to Fav</button>
+</div>
+
+  
+
+<div class="loadWrapper" *ngIf="loading">
+	<div class="loader"></div>
+</div>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Favourite List</h4>
+      </div>
+      <div class="modal-body" >
+       <div *ngFor = 'let list of favRepoList' style="margin-bottom: 10px;">
+        <span style="margin-right: 5px;"><b>Name:</b> {{list.full_name}}</span>
+        <span><b>URL:</b> {{list.url}}</span>
+       </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
